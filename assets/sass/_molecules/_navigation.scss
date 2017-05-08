@@ -1,0 +1,26 @@
+/*==================================
+=            Navigation            =
+==================================*/
+
+.menu-toggle {
+  display: none;
+  @include breakpoint(mobile) {
+    display: block;
+  }
+}
+
+.main-navigation {
+  @include breakpoint(mobile) {
+    > div {
+      display: none;
+    }
+
+    &.toggled {
+      > div {
+        display: block;
+      }
+    }
+  }
+}
+
+/*-----  End of Navigation  ------*/

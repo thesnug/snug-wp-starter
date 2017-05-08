@@ -1,0 +1,49 @@
+html {
+  @include font-primary;
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+
+  &:before,
+  &:after {
+    box-sizing: inherit;
+  }
+}
+
+html,
+body {
+  @include font-setup;
+  height: 100%;
+}
+
+body {
+  @include font-primary;
+  @include font-size;
+  background: $color-body-background;
+  color: $color-text;
+  line-height: $font-line-height;
+  position: relative;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  &:not(.button) {
+    color: $color-links;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-links-hover;
+      text-decoration: underline;
+    }
+  }
+}
+
+.screen-reader-text {
+  @include visually-hidden;
+}

@@ -1,0 +1,46 @@
+.entry-content {
+  figure,
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .wp-caption-text {
+    @include font-size;
+    margin-bottom: rem(20);
+  }
+
+  .alignleft {
+    display: inline;
+    float: left;
+    margin-right: rem(20);
+
+    @include breakpoint(mobile) {
+      margin-bottom: rem(10);
+    }
+  }
+
+  .alignright {
+    display: inline;
+    float: right;
+    margin-left: rem(20);
+
+    @include breakpoint(mobile) {
+      margin-bottom: rem(10);
+    }
+  }
+
+  .aligncenter {
+    clear: both;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+    margin-bottom: rem(20);
+    margin-top: rem(20);
+  }
+
+  @include breakpoint(mobile) {
+    max-width: none;
+  }
+}

@@ -1,0 +1,266 @@
+/* Headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  line-height: 1.1;
+  margin: rem(20) 0 rem(10);
+
+  small,
+  .small {
+    font-size: 65%;
+    font-weight: 400;
+    color: $color-gray-dark;
+  }
+}
+
+h1,
+.h1 {
+  @include font-size(36);
+}
+
+h2,
+.h2 {
+  @include font-size(30);
+}
+
+h3,
+.h3 {
+  @include font-size(24);
+}
+
+h4,
+.h4 {
+  @include font-size(18);
+}
+
+h5,
+.h5 {
+  @include font-size(14);
+}
+
+h6,
+.h6 {
+  @include font-size(12);
+}
+
+
+/* Body */
+
+p {
+  @include font-size;
+  line-height: 1.4;
+  margin: 0 0 rem(10);
+}
+
+
+/* Marked */
+
+mark,
+.mark {
+  background: $color-highlight;
+  padding: rem(2);
+}
+
+
+/* Deleted */
+
+
+/* Strikethrough */
+
+
+/* Inserted */
+
+
+/* Underlined */
+
+
+/* Small */
+
+small,
+.small {
+  font-size: 85%;
+}
+
+
+/* Bold */
+
+
+/* Italics */
+
+
+/* Alignment */
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+
+/* Transformation */
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+
+/* Abbreviations */
+
+abbr {
+  &[title] {
+    cursor: help;
+    border-bottom: 1px dotted $color-gray-darker;
+
+    &.initialism {
+      font-size: 90%;
+      text-transform: uppercase;
+    }
+  }
+}
+
+
+/* Address */
+
+address {
+  font-style: normal;
+  line-height: 1.4;
+  margin-bottom: rem(20);
+}
+
+
+/* Blockquote */
+
+blockquote {
+  @include font-size(18);
+  padding: rem(10) rem(20);
+  margin: 0 0 rem(20);
+  border-left: 5px solid $color-gray-lighter;
+
+  p {
+    @include font-size(18);
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  footer {
+    display: block;
+    font-size: 80%;
+    line-height: 1.4;
+    color: $color-gray-dark;
+  }
+
+  footer,
+  small,
+  .small {
+    &:before {
+      content: '\2014 \00A0';
+    }
+  }
+}
+
+.blockquote-reverse {
+  padding-right: rem(15);
+  padding-left: 0;
+  text-align: right;
+  border-right: 5px solid $color-gray-lighter;
+  border-left: 0;
+
+  footer,
+  small,
+  .small {
+    &:before {
+      content: '';
+    }
+
+    &:after {
+      content: '\00A0 \2014';
+    }
+  }
+}
+
+
+/* List */
+
+ul {
+  margin: 0 0 rem(10);
+}
+
+ol {
+  margin: 0 0 rem(10);
+}
+
+.list-unstyled {
+  @include list-zero;
+}
+
+.list-inline {
+  @include list-zero;
+  margin-left: rem(-5);
+
+  li {
+    display: inline-block;
+    padding: 0 rem(5);
+  }
+}
+
+dl {
+  margin: 0 0 rem(20);
+}
+
+dt {
+  font-weight: 700;
+}
+
+dd {
+  margin-left: 0;
+}
+
+.dl-horizontal {
+  dt {
+    float: left;
+    width: 160px;
+    overflow: hidden;
+    clear: left;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  dd {
+    margin-left: rem(180);
+  }
+}

@@ -1,0 +1,96 @@
+.button,
+button,
+input[type='button'],
+input[type='submit'] {
+  @include button;
+
+  &.button-xs {
+    @include font-size(12);
+    padding: rem(1) rem(5);
+  }
+
+  &.button-s {
+    @include font-size(12);
+    padding: rem(5) rem(10);
+  }
+
+  &.button-l {
+    @include font-size(18);
+    padding: rem(12) rem(16);
+  }
+
+  &.button-primary {
+    background: $color-primary;
+    border-color: transparent;
+    color: $color-white;
+
+    &:hover:not([disabled]):not(.disabled) {
+      background: darken($color-primary, 10%);
+    }
+  }
+
+  &.button-success {
+    background: $color-success;
+    border-color: transparent;
+    color: $color-white;
+
+    &:hover:not([disabled]):not(.disabled) {
+      background: darken($color-success, 10%);
+    }
+  }
+
+  &.button-info {
+    background: $color-info;
+    border-color: transparent;
+    color: $color-white;
+
+    &:hover:not([disabled]):not(.disabled) {
+      background: darken($color-info, 10%);
+    }
+  }
+
+  &.button-warning {
+    background: $color-warning;
+    border-color: transparent;
+    color: $color-white;
+
+    &:hover:not([disabled]):not(.disabled) {
+      background: darken($color-warning, 10%);
+    }
+  }
+
+  &.button-danger {
+    background: $color-danger;
+    border-color: transparent;
+    color: $color-white;
+
+    &:hover:not([disabled]):not(.disabled) {
+      background: darken($color-danger, 10%);
+    }
+  }
+
+  &.button-link {
+    background: transparent;
+    border-color: transparent;
+    color: $color-primary;
+
+    &:hover:not([disabled]):not(.disabled) {
+      text-decoration: underline;
+    }
+  }
+
+  &.button-block {
+    display: block;
+    width: 100%;
+
+    &+.button-block {
+      margin-top: rem(5);
+    }
+  }
+
+  &[disabled],
+  &.disabled {
+    cursor: not-allowed;
+    opacity: .65;
+  }
+}

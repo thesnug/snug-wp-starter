@@ -1,0 +1,41 @@
+{
+  "styles": {
+    "src": "assets/sass/application.scss",
+    "dest": "assets/css",
+    "watch": "assets/sass/**/*.scss"
+  },
+  "components": {
+    "src": [
+      "assets/components/chosen/chosen.jquery.min.js"
+    ],
+    "dest": "assets/javascripts/dest",
+    "file": "components.js",
+    "min": "components.min.js",
+    "watch": "assets/javascripts/src/**/*.js"
+  },
+  "scripts": {
+    "src": [
+      "assets/javascripts/src/utilities/*.js",
+      "assets/javascripts/src/modules/**/*.js",
+      "assets/javascripts/src/*.js"
+    ],
+    "dest": "assets/javascripts/dest",
+    "file": "application.js",
+    "min": "application.min.js",
+    "watch": "assets/javascripts/src/**/*.js"
+  },
+  "images": {
+    "src": "assets/images/src/**/*",
+    "dest": "assets/images/dest",
+    "watch": "assets/images/src/**/*"
+  },
+  "svgs": {
+    "src": "assets/svgs/src/**/*.svg",
+    "dest": "assets/svgs/dest",
+    "partials": "assets/svgs/partials",
+    "watch": "assets/svgs/src/**/*.svg"
+  },
+  "php": {
+    "watch": "**/*.php"
+  }
+}

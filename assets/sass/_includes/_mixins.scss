@@ -1,0 +1,209 @@
+/*==========  Helpers  ==========*/
+
+@mixin clearfix {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin visually-hidden {
+  // sass-lint:disable no-important
+  position: absolute;
+  margin: -1px;
+  padding: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+  word-wrap: normal !important;
+}
+
+@mixin site-container {
+  max-width: $site-width;
+  padding: 0 rem(20);
+  margin: 0 auto;
+}
+
+/*==========  Fonts  ==========*/
+
+@mixin font-setup {
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: text-top;
+}
+
+@mixin font-primary($weight: 400, $style: normal, $transform: none) {
+  font-family: $font-primary;
+  font-weight: $weight;
+  font-style: $style;
+  text-transform: $transform;
+}
+
+
+/*==========  Lists  ==========*/
+
+@mixin list-zero {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+@mixin list-bullet {
+  list-style-type: none;
+  margin-bottom: rem(10);
+
+  li {
+    padding-left: rem(20);
+
+    &:before {
+      @include font-size(20);
+      content: '\2022';
+      margin: 0 rem(10) 0 rem(-20);
+      color: $color-accent;
+      line-height: 0;
+    }
+  }
+}
+
+@mixin list-alpha {
+  list-style-type: lower-alpha;
+  padding-left: rem(20);
+  margin-bottom: rem(10);
+}
+
+@mixin list-roman {
+  list-style-type: lower-roman;
+  padding-left: rem(20);
+  margin-bottom: rem(10);
+}
+
+
+/*==========  Spacing & Sizing  ==========*/
+
+@mixin font-size($size: $font-base-size) {
+  // sass-lint:disable no-duplicate-properties
+  font-size: $size + px;
+  font-size: rem($size);
+}
+
+@mixin base-margin {
+  margin: 0 0 rem(10);
+}
+
+
+/*==========  Buttons  ==========*/
+
+@mixin button($type: default, $size: default) {
+  @include transition;
+  background: none;
+  color: $color-gray-darker;
+  border: 1px solid $color-gray;
+  border-radius: $border-radius;
+  line-height: 1.5;
+  padding: rem(6) rem(12);
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+
+  &:hover {
+    text-decoration: none;
+    color: $color-gray-darker;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover:not([disabled]):not(.disabled) {
+    background: $color-gray-lighter;
+  }
+}
+
+/*-----  Forms  ------*/
+
+@mixin label {
+  text-transform: uppercase;
+}
+
+@mixin field {
+  // @todo
+}
+
+/*==========  Placeholders  ==========*/
+
+@mixin input-placeholder($font-size: 18, $line-height: 1.4, $color: $color-text) {
+  // sass-lint:disable no-vendor-prefixes
+  &::-webkit-input-placeholder {
+    @include font-size($font-size);
+    color: $color;
+    line-height: $line-height;
+  }
+
+  &:-moz-placeholder {
+    @include font-size($font-size);
+    color: $color;
+    line-height: $line-height;
+  }
+
+  &::-moz-placeholder {  /* Firefox 19+ */
+    @include font-size($font-size);
+    color: $color;
+    line-height: $line-height;
+  }
+
+  &:-ms-input-placeholder {
+    @include font-size($font-size);
+    color: $color;
+    line-height: $line-height;
+  }
+}
+
+
+/*==========  Transitions  ==========*/
+
+@mixin transition($property: all, $time: 250ms, $type: linear) {
+  transition: $property $time $type;
+}
+
+
+/*==========  Breakpoints  ==========*/
+
+@mixin breakpoint($point) {
+  @if $point == desktop {
+    @media (min-width: 1000px) { @content; }
+  } @else if $point == mobile {
+    @media (max-width: 999px) { @content; }
+  } @else if $point == laptop {
+    @media (min-width: 768px) and (max-width: 999px) { @content; }
+  } @else if $point == phone {
+    @media (max-width: 767px)  { @content; }
+  }
+}
+
+
+/*==========  Box Sizing  ==========*/
+
+@mixin box-sizing($sizing-type: border-box) {
+  box-sizing: border-box;
+}
+
+
+/*==========  Shadow  ==========*/
+
+@mixin box-shadow {
+  /* horizontal, vertical, blur, spread, color */
+  box-shadow: 4px 4px 4px -6px rgba($color-black, .3);
+}
+
+@mixin text-shadow {
+  // horizontal, vertical, blur, color
+  text-shadow: 4px 4px 4px rgba($color-black, .3);
+}

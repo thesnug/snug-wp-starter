@@ -1,0 +1,149 @@
+label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: rem(5);
+  font-weight: 700;
+}
+
+#{$all-text-inputs},
+select {
+  @include input-placeholder(16, 1.4, $color-gray);
+  @include box-sizing;
+  @include transition(border-color);
+  display: block;
+  border: 1px solid $color-gray-light;
+  border-radius: $border-radius;
+  padding: rem(6) rem(12);
+  line-height: 1.4;
+  width: 100%;
+  height: rem(36);
+  background-color: $color-white;
+  outline: none;
+
+  &:focus {
+    border-color: $color-primary;
+    outline: none;
+  }
+
+  &[disabled],
+  &[readonly] {
+    background: $color-gray-lighter;
+
+    &:focus {
+      border-color: $color-gray-light;
+    }
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+}
+
+input {
+  // sass-lint:disable nesting-depth
+
+  &[type='checkbox'] {
+    display: none;
+
+    &+label {
+      font-weight: normal;
+
+      &:before {
+        display: inline-block;
+        font-family: $font-icons;
+        content: '\f096';
+        width: rem(20);
+        padding-right: rem(5);
+      }
+    }
+
+    &:checked {
+      &+label {
+        &:before {
+          font-family: $font-icons;
+          content: '\f046';
+        }
+      }
+    }
+  }
+
+  &[type='radio'] {
+    display: none;
+
+    &+label {
+      font-weight: normal;
+
+      &:before {
+        display: inline-block;
+        font-family: $font-icons;
+        content: '\f1db';
+        width: rem(20);
+        padding-right: rem(5);
+      }
+    }
+
+    &:checked {
+      &+label {
+        &:before {
+          font-family: $font-icons;
+          content: '\f192';
+        }
+      }
+    }
+  }
+}
+
+textarea {
+  height: auto;
+}
+
+select {
+  &[multiple] {
+    height: auto;
+  }
+}
+
+.info-text {
+  @include font-size(14);
+  display: block;
+  color: $color-gray-dark;
+  margin-top: rem(5);
+}
+
+.form-row {
+  &.has-success {
+    label,
+    .info-text {
+      color: $color-success;
+    }
+
+    #{$all-text-inputs},
+    select {
+      border-color: $color-success;
+    }
+  }
+
+  &.has-warning {
+    label,
+    .info-text {
+      color: $color-warning;
+    }
+
+    #{$all-text-inputs},
+    select {
+      border-color: $color-warning;
+    }
+  }
+
+  &.has-error {
+    label,
+    .info-text {
+      color: $color-danger;
+    }
+
+    #{$all-text-inputs},
+    select {
+      border-color: $color-danger;
+    }
+  }
+}

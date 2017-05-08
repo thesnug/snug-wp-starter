@@ -1,0 +1,115 @@
+table {
+  background-color: transparent;
+}
+
+caption {
+  padding: rem(8) 0;
+  color: $color-gray-dark;
+  text-align: left;
+}
+
+tr {
+  &.active {
+    background: $color-gray-pale;
+  }
+
+  &.success {
+    background: $color-success-bg;
+  }
+
+  &.info {
+    background: $color-info-bg;
+  }
+
+  &.warning {
+    background: $color-warning-bg;
+  }
+
+  &.danger {
+    background: $color-danger-bg;
+  }
+}
+
+th {
+  padding: rem(8);
+  text-align: left;
+  line-height: 1.4;
+  border-top: 1px solid $color-gray-light;
+}
+
+td {
+  padding: rem(8);
+  line-height: 1.4;
+  vertical-align: top;
+  border-top: 1px solid $color-gray-light;
+}
+
+thead {
+  tr {
+    th {
+      border-top: 0;
+    }
+  }
+
+  th {
+    vertical-align: bottom;
+    border-bottom: 2px solid $color-gray-light;
+  }
+}
+
+tbody {
+  th {
+    vertical-align: top;
+  }
+}
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: rem(20);
+}
+
+.table-striped {
+  tr {
+    &:nth-of-type(odd) {
+      background: $color-gray-pale;
+    }
+  }
+}
+
+.table-bordered {
+  border: 1px solid $color-gray-light;
+
+  thead {
+    th {
+      border: 1px solid $color-gray-light;
+      border-bottom-width: 2px;
+    }
+  }
+
+  tbody {
+    th,
+    td {
+      border: 1px solid $color-gray-light;
+    }
+  }
+}
+
+.table-hover {
+  tr {
+    &:hover {
+      background: $color-gray-pale;
+    }
+  }
+}
+
+.table-condensed {
+  th,
+  td {
+    padding: rem(5);
+  }
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
