@@ -130,11 +130,11 @@ add_action( 'widgets_init', 'snug_widgets_init' );
  * Enqueue scripts and styles.
  */
 function snug_scripts() {
-	$version = '1.0.0';
+	$version = time(); // cache buster for development
 	
 	wp_enqueue_style( 'snug-style', get_stylesheet_uri() );
 
-	wp_register_style( 'app-style', get_template_directory_uri() . '/assets/css/application.css' );
+	wp_register_style( 'app-style', get_template_directory_uri() . '/assets/css/application.css', array(), $version );
 	wp_enqueue_style( 'app-style' );
 
 	wp_register_style( 'font-lato', '//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' );
