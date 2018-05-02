@@ -131,4 +131,8 @@ function isMobile() {
     links[_i].addEventListener('blur', toggleFocus, true);
   }
 })();
-"use strict";
+'use strict';
+
+(function module($) {
+  $('select').chosen();
+})(jQuery);

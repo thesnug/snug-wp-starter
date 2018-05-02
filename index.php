@@ -48,6 +48,12 @@ get_header(); ?>
 
 		<?php } // end if-else ?>
 
+						<select name="" id="">
+					<option value="">Hello</option>
+				</select>
+
+				hello
+
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

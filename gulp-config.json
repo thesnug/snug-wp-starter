@@ -1,13 +1,14 @@
 {
   "styles": {
-    "src": "assets/sass/application.scss",
+    "src": [
+      "node_modules/chosen-js/chosen.min.css",
+      "assets/sass/application.scss"
+    ],
     "dest": "assets/css",
     "watch": "assets/sass/**/*.scss"
   },
   "components": {
-    "src": [
-      "assets/components/chosen/chosen.jquery.min.js"
-    ],
+    "src": ["node_modules/chosen-js/chosen.jquery.js"],
     "dest": "assets/javascripts/dest",
     "file": "components.js",
     "min": "components.min.js",

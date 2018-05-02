@@ -1,8 +1,3 @@
-/*==========  Bower Imports  ==========*/
-@import '../components/fontawesome/css/font-awesome.css';
-@import '../components/chosen/chosen.css';
-
-
 /*==========  Includes  ==========*/
 @import '_includes/functions';
 @import '_includes/fonts';
@@ -11,7 +6,6 @@
 @import '_includes/mixins';
 @import '_includes/global';
 
-
 /*==========  Atoms  ==========*/
 @import '_atoms/buttons';
 @import '_atoms/code';
@@ -19,11 +13,9 @@
 @import '_atoms/tables';
 @import '_atoms/text';
 
-
 /*==========  Molecules  ==========*/
 @import '_molecules/wp-content';
 @import '_molecules/navigation';
-
 
 /*==========  Organisms  ==========*/
 @import '_organisms/header';
