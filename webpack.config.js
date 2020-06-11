@@ -33,10 +33,11 @@ module.exports = () => {
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: 'bundle.js'
+      filename: 'bundle.js',
+      publicPath: 'http://localhost:3000/'
     },
     mode: 'development',
-    devtool: 'cheap-eval-source-map',
+    devtool: 'source-map',
     module: {
       rules: [{
           enforce: 'pre',
@@ -61,14 +62,24 @@ module.exports = () => {
             },
             {
               loader: "css-loader",
+              options: {
+                sourceMap: true
+              }
             },
             {
-              loader: "postcss-loader"
+              loader: "postcss-loader",
+              options: {
+                sourceMap: true
+              }
             },
             {
               loader: "sass-loader",
               options: {
-                implementation: require("sass")
+                implementation: require("node-sass"),
+                sourceMap: true,
+                sassOptions: {
+                  outputStyle: 'compressed',
+                },
               }
             }
           ]
@@ -132,7 +143,8 @@ module.exports = () => {
           {
             from: './dist/svgs/*',
             to: './partials/[name].[ext].php',
-            force: true
+            force: true,
+            noErrorOnMissing: true
           },
         ],
       }),

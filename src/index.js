@@ -15,6 +15,3 @@ import './sass/application.scss';
 
 /* SVGs */
 importAll(require.context('./svgs', true, /\.svg$/));
-
-/* Test */
-console.log('Webpack Boilerplate');
