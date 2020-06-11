@@ -4,5 +4,5 @@
  */
 
 module.exports = {
-  url: 'snug-starter-wp.dev'
+  url: 'your-development-url.com'
 };

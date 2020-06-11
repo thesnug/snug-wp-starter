@@ -131,23 +131,20 @@ add_action( 'widgets_init', 'snug_widgets_init' );
  */
 function snug_scripts() {
 	$version = time(); // cache buster for development
-	
-	wp_enqueue_style( 'snug-style', get_stylesheet_uri() );
 
-	wp_register_style( 'app-style', get_template_directory_uri() . '/assets/css/application.css', array(), $version );
-	wp_enqueue_style( 'app-style' );
+	wp_enqueue_style( 'snug-style', get_stylesheet_uri() );
 
 	wp_register_style( 'font-lato', '//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' );
 	wp_enqueue_style( 'font-lato' );
 
 	wp_register_script( 'polyfill', '//cdn.polyfill.io/v2/polyfill.min.js', array(), $version, true );
 	wp_enqueue_script( 'polyfill' );
-	
-	wp_register_script( 'components', get_template_directory_uri() . '/assets/javascripts/dest/components.min.js', array( 'jquery' ), $version, true );
-	wp_enqueue_script( 'components' );
 
-	wp_register_script( 'application', get_template_directory_uri() . '/assets/javascripts/dest/application.min.js', array( 'jquery' ), $version, true );
-	wp_enqueue_script( 'application' );
+	wp_register_style( 'bundle-css', get_template_directory_uri() . '/dist/bundle.css', array(), $version );
+	wp_enqueue_style( 'bundle-css' );
+
+	wp_register_script( 'bundle-js', get_template_directory_uri() . '/dist/bundle.js', array( 'jquery' ), $version, true );
+	wp_enqueue_script( 'bundle-js' );
 
 	/* including a typekit */
 	//wp_enqueue_script( 'snug_typekit', '//use.typekit.net/[typekit-id].js');
