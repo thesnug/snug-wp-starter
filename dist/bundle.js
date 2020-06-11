@@ -147,9 +147,9 @@ eval("(function module($) {\n  $('a[href*=\"#\"]:not([href=\"#\"])').on('click',
   !*** ./src/sass/application.scss ***!
   \***********************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-eval("// extracted by mini-css-extract-plugin//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvc2Fzcy9hcHBsaWNhdGlvbi5zY3NzLmpzIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vc3JjL3Nhc3MvYXBwbGljYXRpb24uc2Nzcz9lMGI3Il0sInNvdXJjZXNDb250ZW50IjpbIi8vIGV4dHJhY3RlZCBieSBtaW5pLWNzcy1leHRyYWN0LXBsdWdpbiJdLCJtYXBwaW5ncyI6IkFBQUEiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/sass/application.scss\n");
+eval("throw new Error(\"Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\\nError: unable to locate 'dist/svgs/*' at '/Volumes/Projects/wordpress/starter-theme/app/public/wp-content/themes/snug-wp-starter/dist/svgs/*'\\n    at processPattern (/Volumes/Projects/wordpress/starter-theme/app/public/wp-content/themes/snug-wp-starter/node_modules/copy-webpack-plugin/dist/processPattern.js:31:26)\\n    at runMicrotasks (<anonymous>)\\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)\\n    at async /Volumes/Projects/wordpress/starter-theme/app/public/wp-content/themes/snug-wp-starter/node_modules/copy-webpack-plugin/dist/index.js:53:27\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvc2Fzcy9hcHBsaWNhdGlvbi5zY3NzLmpzIiwic291cmNlcyI6W10sIm1hcHBpbmdzIjoiIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./src/sass/application.scss\n");
 
 /***/ }),
 
@@ -158,56 +158,17 @@ eval("// extracted by mini-css-extract-plugin//# sourceURL=[module]\n//# sourceM
   !*** ./src/svgs sync \.svg$ ***!
   \******************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-var map = {
-	"./blue-pattern.svg": "./src/svgs/blue-pattern.svg",
-	"./whatever.svg": "./src/svgs/whatever.svg"
-};
-
-
-function webpackContext(req) {
-	var id = webpackContextResolve(req);
-	return __webpack_require__(id);
+function webpackEmptyContext(req) {
+	var e = new Error("Cannot find module '" + req + "'");
+	e.code = 'MODULE_NOT_FOUND';
+	throw e;
 }
-function webpackContextResolve(req) {
-	if(!__webpack_require__.o(map, req)) {
-		var e = new Error("Cannot find module '" + req + "'");
-		e.code = 'MODULE_NOT_FOUND';
-		throw e;
-	}
-	return map[req];
-}
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = "./src/svgs sync recursive \\.svg$";
-
-/***/ }),
-
-/***/ "./src/svgs/blue-pattern.svg":
-/*!***********************************!*\
-  !*** ./src/svgs/blue-pattern.svg ***!
-  \***********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"svgs/blue-pattern.svg\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvc3Zncy9ibHVlLXBhdHRlcm4uc3ZnLmpzIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vc3JjL3N2Z3MvYmx1ZS1wYXR0ZXJuLnN2Zz8xYzFjIl0sInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBkZWZhdWx0IF9fd2VicGFja19wdWJsaWNfcGF0aF9fICsgXCJzdmdzL2JsdWUtcGF0dGVybi5zdmdcIjsiXSwibWFwcGluZ3MiOiJBQUFBO0FBQUEiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/svgs/blue-pattern.svg\n");
-
-/***/ }),
-
-/***/ "./src/svgs/whatever.svg":
-/*!*******************************!*\
-  !*** ./src/svgs/whatever.svg ***!
-  \*******************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"svgs/whatever.svg\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvc3Zncy93aGF0ZXZlci5zdmcuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvc3Zncy93aGF0ZXZlci5zdmc/MjIwOSJdLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgZGVmYXVsdCBfX3dlYnBhY2tfcHVibGljX3BhdGhfXyArIFwic3Zncy93aGF0ZXZlci5zdmdcIjsiXSwibWFwcGluZ3MiOiJBQUFBO0FBQUEiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/svgs/whatever.svg\n");
+webpackEmptyContext.keys = function() { return []; };
+webpackEmptyContext.resolve = webpackEmptyContext;
+module.exports = webpackEmptyContext;
+webpackEmptyContext.id = "./src/svgs sync recursive \\.svg$";
 
 /***/ }),
 
