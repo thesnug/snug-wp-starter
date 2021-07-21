@@ -31,7 +31,6 @@ $color-code-background: #f9f2f4;
 
 $color-primary: #377bb5;
 
-
 /* Color Assignment */
 
 $color-text: $color-gray-darker;
@@ -40,7 +39,6 @@ $color-links: $color-primary;
 $color-links-hover: darken($color-primary, 10%);
 
 $color-body-background: $color-white;
-
 
 /* Social Colors */
 
@@ -52,75 +50,48 @@ $profiles: (
   twitter: #00aced,
   vimeo: #aad450,
   youtube: #b00,
-  linkedin: #0077b5
+  linkedin: #0077b5,
 );
-
 
 /*==========  Fonts  ==========*/
 
 /* Font Definitions */
-$font-lato: 'Lato', sans-serif;
+$font-open_sans: 'Open Sans', sans-serif;
 $font-awesome: 'FontAwesome';
 
 /* Font Assignment */
-$font-primary: $font-lato;
+$font-primary: $font-open_sans;
 $font-icons: $font-awesome;
 
 /* Font Options */
 $font-base-size: 16;
 $font-line-height: 1.4;
 
-
 /*==========  Border Radius  ==========*/
 
 $border-radius: 4px;
 
-
 /*==========  Text Inputs  ==========*/
 
-$text-inputs-list: 'input[type="color"]',
-'input[type="date"]',
-'input[type="datetime"]',
-'input[type="datetime-local"]',
-'input[type="email"]',
-'input[type="month"]',
-'input[type="number"]',
-'input[type="password"]',
-'input[type="search"]',
-'input[type="tel"]',
-'input[type="text"]',
-'input[type="time"]',
-'input[type="url"]',
-'input[type="week"]',
-'textarea';
+$text-inputs-list: 'input[type="color"]', 'input[type="date"]',
+  'input[type="datetime"]', 'input[type="datetime-local"]',
+  'input[type="email"]', 'input[type="month"]', 'input[type="number"]',
+  'input[type="password"]', 'input[type="search"]', 'input[type="tel"]',
+  'input[type="text"]', 'input[type="time"]', 'input[type="url"]',
+  'input[type="week"]', 'textarea';
 
-$all-text-inputs:        assign-elements($text-inputs-list);
+$all-text-inputs: assign-elements($text-inputs-list);
 $all-text-inputs-active: assign-elements($text-inputs-list, active);
-$all-text-inputs-focus:  assign-elements($text-inputs-list, focus);
-$all-text-inputs-hover:  assign-elements($text-inputs-list, hover);
+$all-text-inputs-focus: assign-elements($text-inputs-list, focus);
+$all-text-inputs-hover: assign-elements($text-inputs-list, hover);
 
-
-$text-elements-list: 'h1',
-'h2',
-'h3',
-'h4',
-'h5',
-'h6',
-'p',
-'ul',
-'li',
-'span',
-'strong',
-'em',
-'blockquote',
-'cite';
+$text-elements-list: 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'ul', 'li', 'span',
+  'strong', 'em', 'blockquote', 'cite';
 
 $all-text-elements: assign-inputs($text-elements-list);
-
 
 /*----------  Site  ----------*/
 
 $site-width: rem(1200);
-
 
 /*-----  End of Variables  ------*/

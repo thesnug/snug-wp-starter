@@ -1,7 +1,11 @@
 <?php
+/**
+ ** Snug Loader
+ ** Version 1.0.0
+ **/
 class Snug_Loader {
 
-  // Version
+  /* Version */
   const VERSION                     = '1.0.0';
   const VERSION_OPTION              = 'snug_loader_version';
   const REVISION                    = '20161023';
@@ -33,7 +37,8 @@ class Snug_Loader {
    */
   private function __construct() {
     global $wp_version;
-    // Version Check
+
+    /* Version Check */
     if( $version = get_option( self::VERSION_OPTION, false ) ) {
       self::$current_version = $version;
     } else {
@@ -41,13 +46,13 @@ class Snug_Loader {
       add_option( self::VERSION_OPTION, self::$current_version );
     }
 
-    // Load Features
+    /* Load Features */
     self::load_features();
 
-    // Theme Activation
+    /* Theme Activation */
     add_action( 'after_switch_theme', array( $this, 'activate' ) );
 
-    // Perform updates if necessary
+    /* Perform updates if necessary */
     add_action( 'init', array( $this, 'action_init_check_version' ) );
   }
 
@@ -63,8 +68,13 @@ class Snug_Loader {
    * @return [type] [description]
    */
   private function load_features() {
-    /* Utilities Feature */
+
+    /* Utilities/Helpers */
     require get_template_directory() . '/features/utilities/class-utilities.php';
+
+    /* Theme Setup */
+    require get_template_directory() . '/features/setup/class-setup.php';
+
   }
 
   /**
@@ -130,8 +140,8 @@ class Snug_Loader {
 } // Class
 Snug_Loader::instance();
 
-// On Plugin Activation
+/* On Theme Activation */
 register_activation_hook( __FILE__, array( 'Snug_Loader', 'activate' ) );
 
-// On Plugin DeActivation
+/* On Theme DeActivation */
 register_deactivation_hook( __FILE__, array( 'Snug_Loader', 'deactivate' ) );

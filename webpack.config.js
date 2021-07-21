@@ -1,6 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
@@ -150,7 +150,8 @@ module.exports = () => {
       }),
     ],
     optimization: {
-      minimizer: [new UglifyJsPlugin(), new OptimizeCssAssetsPlugin()]
+      minimize: true,
+      minimizer: [new TerserPlugin(), new OptimizeCssAssetsPlugin()]
     }
   }
 };
