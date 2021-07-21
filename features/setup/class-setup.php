@@ -12,6 +12,7 @@ class Snug_Setup {
   /* References */
   const TEXT_DOMAIN = 'snug';
   const PRODUCTION_URL = '';
+  const HEADLESS = false;
 
   /* Variables */
   private $version = false;
@@ -89,7 +90,6 @@ class Snug_Setup {
       $this->production = false;
     }
 
-
     /* Actions */
     add_action( 'init', array( $this, 'action_init_check_version' ) );
     add_action( 'after_setup_theme', array( $this, 'action_after_setup_theme' ) );
@@ -114,6 +114,9 @@ class Snug_Setup {
     add_action( 'admin_head', array( $this, 'action_hide_dashboard_widget_boxes' ) );
     add_action( 'admin_head', array( $this, 'action_update_dashboard_title' ) );
     add_filter( 'admin_footer_text', array( $this, 'filter_update_dashboard_footer' ) );
+
+    /* Redirecting to dashboard from front-end (useful when headless/API only) */
+    if( self::HEADLESS ) add_action( 'template_redirect', array( $this, 'action_frontend_redirect' ) );
   }
 
   /**
@@ -336,6 +339,16 @@ class Snug_Setup {
    */
   function filter_update_dashboard_footer() {
     echo '<em>' . $this->theme->get( 'Name' ) . ' was built by <a href="' . $this->theme->get( 'AuthorURI' ) . '" target="_blank">' . $this->theme->get( 'Author' ) . '</a></em>';
+  }
+
+  /**
+   * Redirect to dashboard from front-end
+   *
+   * @since 1.0.0
+   */
+  function action_frontend_redirect() {
+    wp_redirect( admin_url() );
+    exit;
   }
 
   /**
