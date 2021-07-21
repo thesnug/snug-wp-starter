@@ -75,6 +75,9 @@ class Snug_Loader {
     /* Theme Setup */
     require get_template_directory() . '/features/setup/class-setup.php';
 
+    /* Taxonomies (uncomment if using/creating custom taxonomies) */
+    // require get_template_directory() . '/features/taxonomies/class-taxonomies.php';
+
   }
 
   /**
