@@ -37,7 +37,7 @@ class Snug_Setup {
       'label' => 'Sample Page',
       'icon' => 'dashicons-warning',
       'caps' => 'manage_options',
-      'description' => 'This is a sample admin page. You should remove or replace this content.',
+      'description' => 'This is a sample admin page. You should remove it or replace this content.',
       'callback' => array( 'Snug_Setup', 'output_admin_page' ),
       'order' => 25
     )
