@@ -1,0 +1,58 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Deploy Development
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ development ]
+
+# Sets up the environment variables
+env:
+  HOST: ${{secrets.HOST}}
+  USERNAME: ${{secrets.USERNAME}}
+  SSH_KEY: ${{secrets.SSH_KEY}}
+  DIRECTORY: ${{secrets.DIRECTORY}}
+  PROJECT: ${{secrets.PROJECT}} 
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "deploy"
+  deploy:
+    # The type of runner that the job will run on
+    name: Deploy to Server
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: Setup SSH Key
+        run: |
+          mkdir ~/.ssh
+          ssh-add <(echo "$SSH_KEY")
+
+      # Runs a set of commands using the runners shell
+      - name: Create the _temp Directory
+        run: |
+          ssh $USERNAME@$HOST "mkdir $DIRECTORY/_tmp"
+          ssh $USERNAME@$HOST "cd $DIRECTORY/_tmp"
+          
+      - name: Copy the new Project to the _temp Directory
+        run: |
+          rsync -rav -e ssh --exclude='.git/' --delete-excluded ./ $USERNAME@$HOST:$DIRECTORY/_tmp
+        
+      - name: Move the current Project to the _old Directory
+        run: |
+          ssh $USERNAME@$HOST "mv $DIRECTORY/$PROJECT $DIRECTORY/_old"
+        
+      - name: Move the new Project from the _temp Directory to the Project Directory
+        run: |
+          ssh $USERNAME@$HOST "mv $DIRECTORY/_tmp $DIRECTORY/$PROJECT"
+          
+      - name: Remove the _old Directory
+        run: |
+          ssh $USERNAME@$HOST "rm -rf $DIRECTORY/_old"
