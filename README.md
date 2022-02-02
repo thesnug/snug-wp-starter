@@ -38,4 +38,6 @@ Any SVGs required can be added directory from Illustrator (or whatever vector pr
 ### Notes
 This setup is something that we use regularly in our projects. The theme itself includes some custom functions that may only work with the Advanced Custom Fields plugin. This theme is not intended to be a one-size-fits-all solution, but we have found it to be useful base to start projects from. This theme is based on a version of the [_underscores](https://github.com/Automattic/_s) starter WordPress theme by [Automattic](http://automattic.com/).
 
+This documentation is out of date.
+
 Built by [@jillmolloy](https://github.com/jillmolloy)
