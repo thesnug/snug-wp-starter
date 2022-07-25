@@ -1,8 +1,9 @@
+@use "sass:math";
+
 @function rem($size) {
-  $rem-size: $size / 10;
+  $rem-size: math.div($size, 10);
   @return #{$rem-size}rem;
 }
-
 
 @function assign-elements($elements, $pseudo: null) {
   $list: ();

@@ -5,42 +5,48 @@
  **/
 class Snug_Setup {
   /* Version */
-  const VERSION            = '1.0.0';
-  const VERSION_OPTION     = 'snug_setup_version';
-  const REVISION           = '0001';
+  const VERSION        = '1.0.0';
+  const VERSION_OPTION = 'snug_setup_version';
+  const REVISION       = '0001';
 
   /* References */
-  const TEXT_DOMAIN = 'snug';
+  const TEXT_DOMAIN    = 'snug';
   const PRODUCTION_URL = '';
-  const HEADLESS = false;
+  const HEADLESS       = false;
 
   /* Variables */
+  /**
+   * @var mixed
+   */
   private $version = false;
 
+  /**
+   * @var mixed
+   */
   private static $instance = false;
 
   /* Menus */
   const NAV_MENUS = array(
     array( 'slug' => 'primary', 'label' => 'Primary Menu' ),
-    array( 'footer' => 'primary', 'label' => 'Footer Menu' )
+    array( 'slug' => 'footer', 'label' => 'Footer Menu' ),
   );
 
   /* Sidebars */
   const SIDEBARS = array(
-    array( 'slug' => 'sidebar-1', 'label' => 'Sidebar', 'description' => '' )
+    array( 'slug' => 'sidebar-1', 'label' => 'Sidebar', 'description' => '' ),
   );
 
   /* Menu Pages */
   const ADMIN_MENU_PAGES = array(
     'sample' => array(
-      'slug' => self::TEXT_DOMAIN . '-sample',
-      'label' => 'Sample Page',
-      'icon' => 'dashicons-warning',
-      'caps' => 'manage_options',
+      'slug'        => self::TEXT_DOMAIN . '-sample',
+      'label'       => 'Sample Page',
+      'icon'        => 'dashicons-warning',
+      'caps'        => 'manage_options',
       'description' => 'This is a sample admin page. You should remove it or replace this content.',
-      'callback' => array( 'Snug_Setup', 'output_admin_page' ),
-      'order' => 25
-    )
+      'callback'    => array( 'Snug_Setup', 'output_admin_page' ),
+      'order'       => 25,
+    ),
   );
 
   /**
@@ -50,7 +56,7 @@ class Snug_Setup {
    * @return self
    */
   public static function instance() {
-    if ( ! is_a( self::$instance, __CLASS__ ) ) {
+    if ( !is_a( self::$instance, __CLASS__ ) ) {
       self::$instance = new self;
     }
     return self::$instance;
@@ -61,7 +67,7 @@ class Snug_Setup {
    *
    * @since 1.0.0
    */
-  private function __clone() { }
+  private function __clone() {}
 
   /**
    * Constructor
@@ -72,7 +78,7 @@ class Snug_Setup {
     global $wp_version;
 
     /* Version Check */
-    if( $version = get_option( self::VERSION_OPTION, false ) ) {
+    if ( $version = get_option( self::VERSION_OPTION, false ) ) {
       $this->version = $version;
     } else {
       $this->version = self::VERSION;
@@ -80,11 +86,11 @@ class Snug_Setup {
     }
 
     /* Theme Variables */
-    $this->theme = wp_get_theme();
+    $this->theme         = wp_get_theme();
     $this->theme_version = $this->theme->get( 'Version' );
 
     /* Set Environment */
-    if( self::PRODUCTION_URL ) {
+    if ( self::PRODUCTION_URL ) {
       $this->production = true;
     } else {
       $this->production = false;
@@ -116,7 +122,10 @@ class Snug_Setup {
     add_filter( 'admin_footer_text', array( $this, 'filter_update_dashboard_footer' ) );
 
     /* Redirecting to dashboard from front-end (useful when headless/API only) */
-    if( self::HEADLESS ) add_action( 'template_redirect', array( $this, 'action_frontend_redirect' ) );
+    if ( self::HEADLESS ) {
+      add_action( 'template_redirect', array( $this, 'action_frontend_redirect' ) );
+    }
+
   }
 
   /**
@@ -126,7 +135,7 @@ class Snug_Setup {
    */
   function action_init_check_version() {
     /* Check if the version has changed and if so perform the necessary actions */
-    if ( ! isset( $this->version ) || $this->version < self::VERSION ) {
+    if ( !isset( $this->version ) || $this->version < self::VERSION ) {
       /* Do version upgrade tasks here */
       update_option( self::VERSION_OPTION, self::VERSION );
     }
@@ -150,17 +159,17 @@ class Snug_Setup {
    * @since 1.0.0
    */
   function action_widgets_init() {
-    if( !empty( self::SIDEBARS ) ) {
-      foreach( self::SIDEBARS as $sidebar ) {
+    if ( !empty( self::SIDEBARS ) ) {
+      foreach ( self::SIDEBARS as $sidebar ) {
         register_sidebar( array(
-          'name' => esc_html__( $sidebar['label'], self::TEXT_DOMAIN ),
-          'id' => $sidebar['slug'],
-          'description' => $sidebar['description'],
+          'name'          => esc_html__( $sidebar['label'], self::TEXT_DOMAIN ),
+          'id'            => $sidebar['slug'],
+          'description'   => $sidebar['description'],
           'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-          'after_widget' => '</aside>',
+          'after_widget'  => '</aside>',
           'before_title'  => '<h2 class="widget-title">',
-          'after_title' => '</h2>',
-        ));
+          'after_title'   => '</h2>',
+        ) );
       }
     }
   }
@@ -202,10 +211,10 @@ class Snug_Setup {
     remove_submenu_page( 'options-general.php', 'options-privacy.php' );
 
     /* Customizer */
-    if( isset( $submenu['themes.php'] ) ) {
-      foreach( $submenu['themes.php'] as $index => $item ) {
-        if( !empty( $item ) ) {
-          if( in_array( 'customize', $item ) ) {
+    if ( isset( $submenu['themes.php'] ) ) {
+      foreach ( $submenu['themes.php'] as $index => $item ) {
+        if ( !empty( $item ) ) {
+          if ( in_array( 'customize', $item ) ) {
             unset( $submenu['themes.php'][$index] );
           }
         }
@@ -219,10 +228,10 @@ class Snug_Setup {
    * @since 1.0.0
    */
   function action_register_menu_pages() {
-    if( !empty( self::ADMIN_MENU_PAGES ) ) {
-      self::add_menu_separator( self::ADMIN_MENU_PAGES[array_key_first(self::ADMIN_MENU_PAGES)]['order'] - 1 );
+    if ( !empty( self::ADMIN_MENU_PAGES ) ) {
+      self::add_menu_separator( self::ADMIN_MENU_PAGES[array_key_first( self::ADMIN_MENU_PAGES )]['order'] - 1 );
 
-      foreach( self::ADMIN_MENU_PAGES as $page ) {
+      foreach ( self::ADMIN_MENU_PAGES as $page ) {
         add_menu_page( $page['label'], $page['label'], $page['caps'], $page['slug'], $page['callback'], $page['icon'], $page['order'] );
       }
     }
@@ -239,13 +248,13 @@ class Snug_Setup {
     wp_register_style( 'stylesheet', get_stylesheet_uri(), array(), $script_version );
     wp_enqueue_style( 'stylesheet' );
 
-    wp_register_style( self::TEXT_DOMAIN . '-css', get_template_directory_uri() . '/dist/bundle.css', array(), $script_version );
+    wp_register_style( self::TEXT_DOMAIN . '-css', get_template_directory_uri() . '/dist/application.css', array(), $script_version );
     wp_enqueue_style( self::TEXT_DOMAIN . '-css' );
 
     wp_register_script( 'polyfill', '//cdn.polyfill.io/v2/polyfill.min.js', array(), $script_version, true );
     wp_enqueue_script( 'polyfill' );
 
-    wp_register_script( self::TEXT_DOMAIN . '-js', get_template_directory_uri() . '/dist/bundle.js', array( 'jquery' ), $script_version, true );
+    wp_register_script( self::TEXT_DOMAIN . '-js', get_template_directory_uri() . '/dist/application.js', array( 'jquery' ), $script_version, true );
     wp_enqueue_script( self::TEXT_DOMAIN . '-js' );
   }
 
@@ -255,7 +264,7 @@ class Snug_Setup {
    * @since 1.0.0
    */
   function action_enqueue_admin_scripts() {
-    wp_register_style( 'admin-styles', get_template_directory_uri().'/admin.css', array(), $this->theme_version );
+    wp_register_style( 'admin-styles', get_template_directory_uri() . '/admin.css', array(), $this->theme_version );
     wp_enqueue_style( 'admin-style' );
   }
 
@@ -267,7 +276,9 @@ class Snug_Setup {
   function filter_check_filetype( $data, $file, $filename, $mimes ) {
     global $wp_version;
 
-    if( $wp_version == '4.7' || ( (float) $wp_version < 4.7 ) ) return $data;
+    if ( $wp_version == '4.7' || ( (float) $wp_version < 4.7 ) ) {
+      return $data;
+    }
 
     $filetype = wp_check_filetype( $filename, $mimes );
 
@@ -300,7 +311,7 @@ class Snug_Setup {
    */
   function filter_disable_updates() {
     global $wp_version;
-    return(object) array( 'last_checked'=> time(), 'version_checked'=> $wp_version );
+    return (object) array( 'last_checked' => time(), 'version_checked' => $wp_version );
   }
 
   /**
@@ -328,7 +339,10 @@ class Snug_Setup {
    * @since 1.0.0
    */
   function action_update_dashboard_title() {
-    if ( $GLOBALS['title'] !== 'Dashboard' ) return;
+    if ( $GLOBALS['title'] !== 'Dashboard' ) {
+      return;
+    }
+
     $GLOBALS['title'] = $this->theme->get( 'Name' );
   }
 
@@ -368,7 +382,7 @@ class Snug_Setup {
    */
   static function add_theme_support() {
     /* Add default posts and comments RSS feed links to head. */
-	  add_theme_support( 'automatic-feed-links' );
+    add_theme_support( 'automatic-feed-links' );
 
     /* Let WordPress manage the document title. */
     add_theme_support( 'title-tag' );
@@ -383,7 +397,7 @@ class Snug_Setup {
       'comment-list',
       'gallery',
       'caption',
-    ));
+    ) );
 
     /* Enable support for Post Formats. */
     add_theme_support( 'post-formats', array(
@@ -392,7 +406,7 @@ class Snug_Setup {
       'video',
       'quote',
       'link',
-    ));
+    ) );
   }
 
   /**
@@ -401,10 +415,10 @@ class Snug_Setup {
    * @since 1.0.0
    */
   static function register_nav_menus() {
-    if( !empty( self::NAV_MENUS ) ) {
+    if ( !empty( self::NAV_MENUS ) ) {
       $menus = array();
 
-      foreach( self::NAV_MENUS as $menu ) {
+      foreach ( self::NAV_MENUS as $menu ) {
         $menus[$menu['slug']] = esc_html__( $menu['label'], self::TEXT_DOMAIN );
       }
 
@@ -418,14 +432,14 @@ class Snug_Setup {
    * @since 1.0.0
    */
   static function add_options_page() {
-    if( function_exists( 'acf_add_options_page' ) ) {
+    if ( function_exists( 'acf_add_options_page' ) ) {
       acf_add_options_page( array(
-        'page_title' 	=> 'Site General Settings',
-        'menu_title'	=> 'Site Settings',
-        'menu_slug' 	=> 'site-general-settings',
-        'capability'	=> 'edit_posts',
-        'redirect'		=> false
-      ));
+        'page_title' => 'Site General Settings',
+        'menu_title' => 'Site Settings',
+        'menu_slug'  => 'site-general-settings',
+        'capability' => 'edit_posts',
+        'redirect'   => false,
+      ) );
     }
   }
 
@@ -452,7 +466,7 @@ class Snug_Setup {
         <p><?php echo self::ADMIN_MENU_PAGES['sample']['description']; ?></p>
       </div>
     <?php
-  }
+}
 
 } // Class
 Snug_Setup::instance();
