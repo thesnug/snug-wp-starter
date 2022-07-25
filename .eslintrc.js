@@ -13,7 +13,7 @@ module.exports = {
   parserOptions: {
     requireConfigFile: false
   },
-  ignorePatterns: [ 'webpack.mix.js' ],
+  ignorePatterns: [ './src/application.js', './src/assets.js' ],
   rules: {
     'no-return-assign': 'off',
     'no-param-reassign': 'off',

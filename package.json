@@ -6,15 +6,7 @@
   "bugs": {
     "url": "https://github.com/thesnug/snug-wp-starter/issues"
   },
-  "dependencies": {
-    "@babel/polyfill": "^7.10.1",
-    "parcel": "^2.6.2",
-    "parcel-bundler": "^1.12.5",
-    "parcel-namer-custom": "^0.2.0",
-    "parcel-namer-rewrite": "^2.0.0-rc.2",
-    "parcel-namer-without-hash": "^0.0.1",
-    "postcss": "^8.4.14"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.0",
     "@parcel/resolver-glob": "^2.6.2",
@@ -28,7 +20,9 @@
     "imagemin-optipng": "^8.0.0",
     "imagemin-svgo": "^9.0.0",
     "imagemin-webp": "^6.0.0",
-    "postcss-preset-env": "^6.7.0",
+    "parcel": "^2.6.2",
+    "parcel-bundler": "^1.12.5",
+    "parcel-namer-without-hash": "^0.0.1",
     "sass": "^1.43.4"
   },
   "homepage": "https://thesnug.io",
