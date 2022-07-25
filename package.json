@@ -6,22 +6,16 @@
   "bugs": {
     "url": "https://github.com/thesnug/snug-wp-starter/issues"
   },
-  "dependencies": {},
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.0",
     "@parcel/resolver-glob": "^2.6.2",
     "@parcel/transformer-sass": "^2.6.2",
-    "browser-sync": "^2.27.7",
+    "browser-sync": "^2.27.9",
+    "concurrently": "^7.3.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^6.11.0",
-    "imagemin-gifsicle": "^7.0.0",
-    "imagemin-jpegtran": "^7.0.0",
-    "imagemin-optipng": "^8.0.0",
-    "imagemin-svgo": "^9.0.0",
-    "imagemin-webp": "^6.0.0",
     "parcel": "^2.6.2",
-    "parcel-bundler": "^1.12.5",
     "parcel-namer-without-hash": "^0.0.1",
     "sass": "^1.43.4"
   },
@@ -37,7 +31,7 @@
   },
   "scripts": {
     "build": "parcel build",
-    "dev": "parcel watch"
+    "dev": "parcel watch --no-hmr & node development.js"
   },
   "targets": {
     "application": {

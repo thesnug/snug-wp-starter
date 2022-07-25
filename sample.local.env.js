@@ -3,6 +3,6 @@
  * this file MUST be renamed to local.env.js
  */
 
-module.exports = {
+ module.exports = {
   url: 'your-development-url.com'
 };
