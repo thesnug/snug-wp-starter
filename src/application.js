@@ -6,6 +6,3 @@ import './javascript/modules/navigation';
 
 /* Sass */
 import './sass/application.scss';
-
-/* SVGs */
-import svgs from './svgs/*.svg';

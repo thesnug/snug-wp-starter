@@ -1,0 +1,2 @@
+/* Sass */
+import './application.scss';

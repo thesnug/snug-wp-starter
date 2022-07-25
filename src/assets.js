@@ -1,0 +1,2 @@
+/* SVGs */
+import './svgs/*.svg';

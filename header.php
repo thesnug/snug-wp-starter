@@ -39,4 +39,4 @@
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
-		<img src="<?php echo get_template_directory_uri(); ?>/dist/icon-pin.svg" alt="Pin Icon">
+		<img src="<?php echo get_template_directory_uri(); ?>/dist/assets/icon-pin.svg" alt="Pin Icon">

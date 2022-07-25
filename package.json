@@ -10,6 +10,8 @@
     "@babel/polyfill": "^7.10.1",
     "parcel": "^2.6.2",
     "parcel-bundler": "^1.12.5",
+    "parcel-namer-custom": "^0.2.0",
+    "parcel-namer-rewrite": "^2.0.0-rc.2",
     "parcel-namer-without-hash": "^0.0.1",
     "postcss": "^8.4.14"
   },
@@ -40,7 +42,17 @@
     "url": "https://github.com/thesnug/snug-wp-starter"
   },
   "scripts": {
-    "build": "parcel build ./src/application.js",
-    "dev": "parcel watch ./src/application.js"
+    "build": "parcel build",
+    "dev": "parcel watch"
+  },
+  "targets": {
+    "application": {
+      "source": "./src/application.js",
+      "distDir": "./dist"
+    },
+    "assets": {
+      "source": "./src/assets.js",
+      "distDir": "./dist/assets"
+    }
   }
 }
