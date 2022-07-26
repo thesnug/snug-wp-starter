@@ -220,12 +220,12 @@ img {
   max-width: 100%;
 }
 
-a:not(.button) {
+a {
   color: #377bb5;
   text-decoration: none;
 }
 
-a:not(.button):hover {
+a:hover {
   color: #2b608e;
   text-decoration: underline;
 }

@@ -1,10 +1,14 @@
 {
   "name": "snug-wp-starter",
+  "private": true,
   "description": "Starter WordPress theme for The Snug projects.",
   "version": "3.1.0",
   "author": "The Snug <development@thesnug.io>",
   "bugs": {
     "url": "https://github.com/thesnug/snug-wp-starter/issues"
+  },
+  "dependencies": {
+    "@parcel/plugin": "^2.6.2"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.0",
@@ -42,5 +46,8 @@
       "source": "./src/assets.js",
       "distDir": "./dist/assets"
     }
-  }
+  },
+  "workspaces": [
+    "packages/parcel-optimizer-svg"
+  ]
 }

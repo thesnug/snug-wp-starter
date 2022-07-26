@@ -33,14 +33,12 @@ img {
 }
 
 a {
-  &:not(.button) {
-    color: $color-links;
-    text-decoration: none;
+  color: $color-links;
+  text-decoration: none;
 
-    &:hover {
-      color: $color-links-hover;
-      text-decoration: underline;
-    }
+  &:hover {
+    color: $color-links-hover;
+    text-decoration: underline;
   }
 }
 

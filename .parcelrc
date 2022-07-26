@@ -2,6 +2,9 @@
   "extends": "@parcel/config-default",
   "resolvers": ["@parcel/resolver-glob", "..."],
   "namers": ["parcel-namer-without-hash"],
+  "optimizers": {
+    "*.svg": ["...", "parcel-optimizer-svg"]
+  },
   "transformers": {
     "*.svg": ["...", "@parcel/transformer-svg"]
   }

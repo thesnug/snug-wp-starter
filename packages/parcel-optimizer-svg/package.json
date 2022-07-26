@@ -1,0 +1,26 @@
+{
+  "name": "parcel-optimizer-svg",
+  "version": "1.0.0",
+  "main": "parcel-optimizer-svg.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jill Molloy <jill@thesnug.io> (https://thesnug.io/)",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {
+    "@parcel/plugin": "^2.6.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thesnug/snug-wp-starter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thesnug/snug-wp-starter/issues"
+  },
+  "homepage": "https://github.com/thesnug/snug-wp-starter#readme",
+  "description": "",
+  "engines": {
+    "parcel": "^2.0.1"
+  }
+}
