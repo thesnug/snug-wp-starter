@@ -1,4 +1,22 @@
+# MacOS
 .DS_Store
+
+# Logs
+*.log
+
+# Dotenv
+.env
+.env.*
+!.env.example
+
+# Composer
+/vendor
+
+# WP-CLI
+wp-cli.local.yml
+wp-cli.local.php
+
+# JavaScript
 node_modules
 npm-debug.log
 local.env.js

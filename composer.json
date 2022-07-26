@@ -1,0 +1,11 @@
+{
+  "config": {
+    "platform-check": false
+  },
+  "require": {
+    "spatie/ray": "^1.34.5",
+    "sentry/sdk": "^3.2",
+    "vlucas/phpdotenv": "^5.4",
+    "symfony/http-client": "^4.3|^5.0"
+  }
+}
