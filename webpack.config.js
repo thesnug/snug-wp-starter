@@ -108,7 +108,7 @@ module.exports = () => {
               loader: "svgo-loader",
               options: {
                 plugins: [
-                  {removeXMLProcInst: true}
+                  { name: 'removeXMLProcInst', active: true }
                 ]
               }
             }
