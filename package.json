@@ -47,7 +47,7 @@
     "terser-webpack-plugin": "^5.6.0",
     "webpack": "^5.107.1",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^5.2.4"
+    "webpack-dev-server": "^5.2.6"
   },
   "homepage": "https://thesnug.io",
   "keywords": [
