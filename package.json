@@ -46,7 +46,7 @@
     "svgo-loader": "^5.0.0",
     "terser-webpack-plugin": "^5.6.0",
     "webpack": "^5.107.1",
-    "webpack-cli": "^3.3.11",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^5.2.4"
   },
   "homepage": "https://thesnug.io",
